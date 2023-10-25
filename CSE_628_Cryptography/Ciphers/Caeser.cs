@@ -38,7 +38,7 @@ namespace CSE_628_Cryptography.Ciphers
 		public Command ParseCaeserCommand
 		{
 			get;
-			set;
+			private set;
 		}
 
 		public string Result

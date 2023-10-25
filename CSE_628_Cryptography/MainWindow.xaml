@@ -64,6 +64,49 @@
 						<ColumnDefinition />
 						<ColumnDefinition />
 					</Grid.ColumnDefinitions>
+
+					<Grid.RowDefinitions>
+						<RowDefinition />
+						<RowDefinition />
+						<RowDefinition />
+					</Grid.RowDefinitions>
+
+					<!--#region Caeser Cipher-->
+					<GroupBox Margin="5" Grid.Column="1" Grid.RowSpan="55" Header="Caeser Cipher" materialDesign:ColorZoneAssist.Mode="SecondaryMid">
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition />
+								<ColumnDefinition />
+								<ColumnDefinition />
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition />
+								<RowDefinition Height="Auto" />
+								<RowDefinition />
+							</Grid.RowDefinitions>
+							<TextBox Text="{Binding CaeserCipher.Analyze}" Grid.ColumnSpan="3" ScrollViewer.VerticalScrollBarVisibility="Auto" AcceptsReturn="True" />
+							<TextBox Text="{Binding CaeserCipher.Key}" materialDesign:HintAssist.Hint="Enter Key" Grid.Row="1"  Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Height="42" />
+							<Button  Margin="0,10,0, 10" Grid.Row="1" Grid.Column="3" Content="Calculate Cipher" Command="{Binding CaeserCipher.ParseCaeserCommand}" VerticalAlignment="Bottom" />
+							<TextBox Grid.Row="2" Text="{Binding CaeserCipher.Result}" Grid.ColumnSpan="3" ScrollViewer.VerticalScrollBarVisibility="Auto" AcceptsReturn="True" />
+						</Grid>
+					</GroupBox>
+					<!--#endregion-->
+				</Grid>
+			</TabItem>
+			<TabItem Header="Tools">
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition />
+						<ColumnDefinition />
+					</Grid.ColumnDefinitions>
+
+					<Grid.RowDefinitions>
+						<RowDefinition />
+						<RowDefinition />
+						<RowDefinition />
+					</Grid.RowDefinitions>
+
+					<!--#region  Multiplicative Inverse-->
 					<GroupBox Margin="5" Header="Multiplicative Inverse" materialDesign:ColorZoneAssist.Mode="SecondaryMid">
 						<Grid>
 							<Grid.ColumnDefinitions>
@@ -92,7 +135,10 @@
 							<Button Grid.Row="2" Content="Find Multiplicative Inverse" Command="{Binding MultiplicativeInverse.FindMultiplicativeInverseCommand}" />
 						</Grid>
 					</GroupBox>
-					<GroupBox Margin="5" Grid.Column="1" Header="Caeser Cipher" materialDesign:ColorZoneAssist.Mode="SecondaryMid">
+					<!--#endregion-->
+
+					<!--#region Relative Primes-->
+					<GroupBox Grid.Row="1" Margin="5" Header="Relative Primes" materialDesign:ColorZoneAssist.Mode="SecondaryMid">
 						<Grid>
 							<Grid.ColumnDefinitions>
 								<ColumnDefinition />
@@ -100,16 +146,78 @@
 								<ColumnDefinition />
 							</Grid.ColumnDefinitions>
 							<Grid.RowDefinitions>
-								<RowDefinition />
 								<RowDefinition Height="Auto" />
-								<RowDefinition />
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="*" />
 							</Grid.RowDefinitions>
-							<TextBox Text="{Binding CaeserCipher.Analyze}" Grid.ColumnSpan="3" ScrollViewer.VerticalScrollBarVisibility="Auto" AcceptsReturn="True" />
-							<TextBox Text="{Binding CaeserCipher.Key}" materialDesign:HintAssist.Hint="Enter Key" Grid.Row="1"  Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Height="42" />
-							<Button  Margin="0,10,0, 10" Grid.Row="1" Grid.Column="3" Content="Calculate Cipher" Command="{Binding CaeserCipher.ParseCaeserCommand}" VerticalAlignment="Bottom" />
-							<TextBox Grid.Row="2" Text="{Binding CaeserCipher.Result}" Grid.ColumnSpan="3" ScrollViewer.VerticalScrollBarVisibility="Auto" AcceptsReturn="True" />
+							<TextBox Margin="5" Text="{Binding RelativePrimeClass.X}" materialDesign:HintAssist.Hint="Enter M"  Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Height="48" />
+							<StackPanel Grid.Row="1" Orientation="Horizontal" Margin="5,0,0,0">
+								<TextBlock  Text="Count: " />
+								<TextBlock Margin="2,0,0,0" Text="{Binding RelativePrimeClass.RelativePrimesList.Count}" />
+							</StackPanel>
+							<ScrollViewer Margin="5, 0, 5, 5" Grid.Row="2" Grid.ColumnSpan="10" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+								<StackPanel Orientation="Horizontal">
+									<TextBlock Text="Relative Prime Range: " />
+									<TextBlock FontFamily="Palatino Linotype" Grid.Row="2"  Text="{Binding RelativePrimeClass.Display}" />
+								</StackPanel>
+							</ScrollViewer>
+
+							<Button Grid.Row="3" Content="Find Relative Primes" Command="{Binding RelativePrimeClass.CalculateRelativePrimesCommmand}" />
 						</Grid>
 					</GroupBox>
+					<!--#endregion-->
+
+					<!--#region GCD-->
+					<GroupBox Grid.Row="2" Margin="5" Header="GCD" materialDesign:ColorZoneAssist.Mode="SecondaryMid">
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition />
+								<ColumnDefinition />
+								<ColumnDefinition />
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="*" />
+							</Grid.RowDefinitions>
+							<TextBox Margin="5" Text="{Binding GCD.X}" materialDesign:HintAssist.Hint="Enter x"  Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Height="48" />
+							<TextBox Grid.Column="1" Text="{Binding GCD.Y}" Margin="5" materialDesign:HintAssist.Hint="Enter y"  Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Height="48" />
+							<StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,10,0,10">
+								<TextBlock Text="GCD:" />
+								<TextBlock Margin="10,0,0,0" Grid.Row="2"  Text="{Binding GCD.Gcd}" />
+							</StackPanel>
+							<Button Grid.Row="2" Content="Find GCD" Command="{Binding GCD.CalculateGCDCommand}" />
+						</Grid>
+					</GroupBox>
+					<!--#endregion-->
+
+					<!--#region Factors-->
+					<GroupBox Grid.Column="1" Margin="5" Header="Factors" materialDesign:ColorZoneAssist.Mode="SecondaryMid">
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition />
+								<ColumnDefinition />
+								<ColumnDefinition />
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="*" />
+							</Grid.RowDefinitions>
+							<TextBox Margin="5" Text="{Binding Factors.X}" materialDesign:HintAssist.Hint="Enter x"  Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Height="48" />
+							<ScrollViewer Margin="5, 0, 5, 5" Grid.Row="1" Grid.ColumnSpan="10" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+								<StackPanel Orientation="Horizontal">
+									<TextBlock Text="Factors: " />
+									<TextBlock FontFamily="Palatino Linotype" Grid.Row="2"  Text="{Binding Factors.Display}" />
+								</StackPanel>
+							</ScrollViewer>
+							<Button Grid.Row="2" Content="Find Factors" Command="{Binding Factors.FactorClassCommand}" />
+						</Grid>
+					</GroupBox>
+					<!--#endregion-->
 				</Grid>
 			</TabItem>
 		</TabControl>

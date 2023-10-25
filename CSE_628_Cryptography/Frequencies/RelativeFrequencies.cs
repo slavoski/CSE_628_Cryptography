@@ -21,7 +21,11 @@ namespace CSE_628_Cryptography.Frequencies
 			}
 		}
 
-		public Command CalculateFrequenciesCommand { get; set; }
+		public Command CalculateFrequenciesCommand 
+		{ 
+			get; 
+			private set; 
+		}
 
 		public string TextToCalculate
 		{

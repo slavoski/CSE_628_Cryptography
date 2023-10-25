@@ -22,7 +22,7 @@ namespace CSE_628_Cryptography.MultiplicativeInverse
 		public Command FindMultiplicativeInverseCommand
 		{
 			get;
-			set;
+			private set;
 		}
 
 		public double M
