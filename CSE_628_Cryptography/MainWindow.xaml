@@ -47,7 +47,6 @@
 													<Run Text="/" />
 													<Run Text="{Binding Value.TotalCount, StringFormat={}{0} \ \ \ }" />
 													<Run Text="{Binding Value.Percentage, StringFormat=Percentage: {0:N2}%, Mode=OneWay}" />
-													
 												</TextBlock.Inlines>
 											</TextBlock>
 											<Rectangle Height="24" Width="{Binding Value.BarWidth}" Fill="DarkGreen" HorizontalAlignment="Left" />
@@ -60,34 +59,58 @@
 				</GroupBox>
 			</TabItem>
 			<TabItem Header="Ciphers">
-				<GroupBox Header="Multiplicative Inverse" materialDesign:ColorZoneAssist.Mode="SecondaryMid">
-					<Grid>
-						<Grid.ColumnDefinitions>
-							<ColumnDefinition />
-							<ColumnDefinition />
-							<ColumnDefinition />
-						</Grid.ColumnDefinitions>
-						<Grid.RowDefinitions>
-							<RowDefinition Height="Auto" />
-							<RowDefinition Height="Auto" />
-							<RowDefinition Height="Auto" />
-							<RowDefinition Height="*" />
-						</Grid.RowDefinitions>
-						<TextBox Margin="5" Text="{Binding MultiplicativeInverse.A}" materialDesign:HintAssist.Hint="Enter a"  Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Height="48" />
-						<TextBox Grid.Column="1" Text="{Binding MultiplicativeInverse.M}" Margin="5" materialDesign:HintAssist.Hint="Enter m"  Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Height="48" />
-						<StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,10,0,10">
-							<TextBlock>
-								<TextBlock.Inlines>
-									<Run Text="a" />
-									<Run FontFamily="Palatino Linotype" Typography.Variants="Superscript" Text="&#8315;1" />
-									<Run Text=" =" />
-								</TextBlock.Inlines>
-							</TextBlock>
-							<TextBlock Margin="10,0,0,0" FontFamily="Palatino Linotype" Grid.Row="2"  Text="{Binding MultiplicativeInverse.Result}" />
-						</StackPanel>
-						<Button Grid.Row="2" Content="Find Multiplicative Inverse" Command="{Binding MultiplicativeInverse.FindMultiplicativeInverseCommand}" />
-					</Grid>
-				</GroupBox>
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition />
+						<ColumnDefinition />
+					</Grid.ColumnDefinitions>
+					<GroupBox Margin="5" Header="Multiplicative Inverse" materialDesign:ColorZoneAssist.Mode="SecondaryMid">
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition />
+								<ColumnDefinition />
+								<ColumnDefinition />
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="*" />
+							</Grid.RowDefinitions>
+							<TextBox Margin="5" Text="{Binding MultiplicativeInverse.A}" materialDesign:HintAssist.Hint="Enter a"  Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Height="48" />
+							<TextBox Grid.Column="1" Text="{Binding MultiplicativeInverse.M}" Margin="5" materialDesign:HintAssist.Hint="Enter m"  Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Height="48" />
+							<StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,10,0,10">
+								<TextBlock>
+									<TextBlock.Inlines>
+										<Run Text="a" />
+										<Run FontFamily="Palatino Linotype" Typography.Variants="Superscript" Text="&#8315;1" />
+										<Run Text=" =" />
+									</TextBlock.Inlines>
+								</TextBlock>
+								<TextBlock Margin="10,0,0,0" FontFamily="Palatino Linotype" Grid.Row="2"  Text="{Binding MultiplicativeInverse.Result}" />
+							</StackPanel>
+							<Button Grid.Row="2" Content="Find Multiplicative Inverse" Command="{Binding MultiplicativeInverse.FindMultiplicativeInverseCommand}" />
+						</Grid>
+					</GroupBox>
+					<GroupBox Margin="5" Grid.Column="1" Header="Caeser Cipher" materialDesign:ColorZoneAssist.Mode="SecondaryMid">
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition />
+								<ColumnDefinition />
+								<ColumnDefinition />
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition />
+								<RowDefinition Height="Auto" />
+								<RowDefinition />
+							</Grid.RowDefinitions>
+							<TextBox Text="{Binding CaeserCipher.Analyze}" Grid.ColumnSpan="3" ScrollViewer.VerticalScrollBarVisibility="Auto" AcceptsReturn="True" />
+							<TextBox Text="{Binding CaeserCipher.Key}" materialDesign:HintAssist.Hint="Enter Key" Grid.Row="1"  Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Height="42" />
+							<Button  Margin="0,10,0, 10" Grid.Row="1" Grid.Column="3" Content="Calculate Cipher" Command="{Binding CaeserCipher.ParseCaeserCommand}" VerticalAlignment="Bottom" />
+							<TextBox Grid.Row="2" Text="{Binding CaeserCipher.Result}" Grid.ColumnSpan="3" ScrollViewer.VerticalScrollBarVisibility="Auto" AcceptsReturn="True" />
+						</Grid>
+					</GroupBox>
+				</Grid>
 			</TabItem>
 		</TabControl>
 	</Grid>

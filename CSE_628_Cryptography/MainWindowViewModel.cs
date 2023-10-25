@@ -1,4 +1,5 @@
-﻿using CSE_628_Cryptography.Frequencies;
+﻿using CSE_628_Cryptography.Ciphers;
+using CSE_628_Cryptography.Frequencies;
 using CSE_628_Cryptography.MultiplicativeInverse;
 using MvvmHelpers;
 
@@ -8,6 +9,12 @@ namespace CSE_628_Cryptography
 	{
 		private MultiplicativeInverseClass multiplicativeInverse = new MultiplicativeInverseClass();
 		private RelativeFrequencies relativeFrequencies = new RelativeFrequencies();
+
+		public Caeser CaeserCipher
+		{
+			get;
+			set;
+		} = new Caeser();
 
 		public MultiplicativeInverseClass MultiplicativeInverse
 		{
