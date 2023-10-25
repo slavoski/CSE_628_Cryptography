@@ -8,6 +8,12 @@ namespace CSE_628_Cryptography
 {
 	public class MainWindowViewModel : BaseViewModel
 	{
+		public AffineCipherClass AffineCipherClass
+		{
+			get;
+			set;
+		} = new AffineCipherClass();
+
 		public Caeser CaeserCipher
 		{
 			get;

@@ -61,6 +61,8 @@ namespace CSE_628_Cryptography.Tools
 				}
 			}
 			SetDisplay();
+			OnPropertyChanged(nameof(RelativePrimesList));
+
 		}
 
 		private void SetDisplay()

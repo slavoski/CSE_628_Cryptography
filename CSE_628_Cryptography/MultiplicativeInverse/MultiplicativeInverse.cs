@@ -5,11 +5,11 @@ namespace CSE_628_Cryptography.MultiplicativeInverse
 {
 	public class MultiplicativeInverseClass : BaseViewModel
 	{
-		private double _a;
-		private double _m;
-		private double _result;
+		private int _a;
+		private int _m;
+		private int _result;
 
-		public double A
+		public int A
 		{
 			get => _a;
 			set
@@ -25,7 +25,7 @@ namespace CSE_628_Cryptography.MultiplicativeInverse
 			private set;
 		}
 
-		public double M
+		public int M
 		{
 			get => _m;
 			set
@@ -35,7 +35,7 @@ namespace CSE_628_Cryptography.MultiplicativeInverse
 			}
 		}
 
-		public double Result
+		public int Result
 		{
 			get => _result;
 			set
@@ -54,12 +54,12 @@ namespace CSE_628_Cryptography.MultiplicativeInverse
 
 		#endregion constructor
 
-		public void FindMultiplicativeInverse()
+		public int FindMultiplicativeInverse()
 		{
 			int i = 0;
 			while (i < M)
 			{
-				double value = (i * A) - 1;
+				int value = (i * A) - 1;
 
 				if (value % M == 0)
 				{
@@ -71,6 +71,8 @@ namespace CSE_628_Cryptography.MultiplicativeInverse
 					i++;
 				}
 			}
+
+			return Result;
 		}
 	}
 }

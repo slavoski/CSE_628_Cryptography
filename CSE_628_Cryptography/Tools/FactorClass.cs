@@ -56,6 +56,7 @@ namespace CSE_628_Cryptography.Tools
 		{
 			Factors = HelperClass.CalculateFactors(X);
 			SetDisplay();
+			OnPropertyChanged(nameof(Factors));
 		}
 
 		private void SetDisplay()
@@ -69,7 +70,7 @@ namespace CSE_628_Cryptography.Tools
 				if (factor != Factors.Last())
 					display += ", ";
 			}
-			display += "}";
+			display += " }";
 
 			Display = display;
 		}
