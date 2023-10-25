@@ -1,0 +1,94 @@
+﻿<Window x:Class="CSE_628_Cryptography.MainWindow"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:local="clr-namespace:CSE_628_Cryptography"
+		mc:Ignorable="d"
+        Title="Cryptography" Height="800" Width="1300"
+		TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="{materialDesign:MaterialDesignFont}">
+	<Window.DataContext>
+		<local:MainWindowViewModel />
+	</Window.DataContext>
+	<Grid>
+		<TabControl>
+			<TabItem Header="Frequencies">
+				<GroupBox Header="Relative Frequencies">
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition MaxWidth="550" />
+							<ColumnDefinition />
+						</Grid.ColumnDefinitions>
+						<GroupBox Header="Type Text to Parse Below" materialDesign:ColorZoneAssist.Mode="SecondaryMid">
+							<Grid>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition />
+									<ColumnDefinition />
+								</Grid.ColumnDefinitions>
+								<TextBox Text="{Binding RelativeFrequencies.TextToCalculate}" Grid.ColumnSpan="2" ScrollViewer.VerticalScrollBarVisibility="Auto" AcceptsReturn="True" />
+								<Button Margin="10" Grid.Column="2" Content="Calculate Frequency" VerticalAlignment="Bottom" Command="{Binding RelativeFrequencies.CalculateFrequenciesCommand}" />
+							</Grid>
+						</GroupBox>
+						<ScrollViewer Grid.Column="1" HorizontalScrollBarVisibility="Visible">
+							<ListBox  ItemsSource="{Binding RelativeFrequencies.Alphabet}">
+								<ListBox.ItemTemplate>
+									<DataTemplate>
+										<StackPanel>
+											<TextBlock>
+												<TextBlock.Inlines>
+													<Run Text="{Binding Key, Mode=OneWay, StringFormat=Value: {0} \ \ \ }" />
+													<Run Text=" Count: " />
+													<Run Text="{Binding Value.Count}" />
+													<Run Text="/" />
+													<Run Text="{Binding Value.TotalCount, StringFormat={}{0} \ \ \ }" />
+													<Run Text="{Binding Value.Percentage, StringFormat=Percentage: {0:N2}%, Mode=OneWay}" />
+													
+												</TextBlock.Inlines>
+											</TextBlock>
+											<Rectangle Height="24" Width="{Binding Value.BarWidth}" Fill="DarkGreen" HorizontalAlignment="Left" />
+										</StackPanel>
+									</DataTemplate>
+								</ListBox.ItemTemplate>
+							</ListBox>
+						</ScrollViewer>
+					</Grid>
+				</GroupBox>
+			</TabItem>
+			<TabItem Header="Ciphers">
+				<GroupBox Header="Multiplicative Inverse" materialDesign:ColorZoneAssist.Mode="SecondaryMid">
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition />
+							<ColumnDefinition />
+							<ColumnDefinition />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="*" />
+						</Grid.RowDefinitions>
+						<TextBox Margin="5" Text="{Binding MultiplicativeInverse.A}" materialDesign:HintAssist.Hint="Enter a"  Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Height="48" />
+						<TextBox Grid.Column="1" Text="{Binding MultiplicativeInverse.M}" Margin="5" materialDesign:HintAssist.Hint="Enter m"  Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Height="48" />
+						<StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,10,0,10">
+							<TextBlock>
+								<TextBlock.Inlines>
+									<Run Text="a" />
+									<Run FontFamily="Palatino Linotype" Typography.Variants="Superscript" Text="&#8315;1" />
+									<Run Text=" =" />
+								</TextBlock.Inlines>
+							</TextBlock>
+							<TextBlock Margin="10,0,0,0" FontFamily="Palatino Linotype" Grid.Row="2"  Text="{Binding MultiplicativeInverse.Result}" />
+						</StackPanel>
+						<Button Grid.Row="2" Content="Find Multiplicative Inverse" Command="{Binding MultiplicativeInverse.FindMultiplicativeInverseCommand}" />
+					</Grid>
+				</GroupBox>
+			</TabItem>
+		</TabControl>
+	</Grid>
+</Window>
