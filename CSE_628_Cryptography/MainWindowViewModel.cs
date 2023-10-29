@@ -2,6 +2,7 @@
 using CSE_628_Cryptography.Frequencies;
 using CSE_628_Cryptography.MultiplicativeInverse;
 using CSE_628_Cryptography.Tools;
+using MaterialDesignThemes.Wpf;
 using MvvmHelpers;
 
 namespace CSE_628_Cryptography
@@ -49,5 +50,18 @@ namespace CSE_628_Cryptography
 			get;
 			set;
 		} = new RelativePrimeClass();
+		
+		public SnackbarMessageQueue SnackBoxMessage
+		{
+			get;
+			set;
+		} = new SnackbarMessageQueue();
+
+		public StreamCipher StreamCipherClass
+		{
+			get;
+			set;
+		} = new StreamCipher();
+
 	}
 }

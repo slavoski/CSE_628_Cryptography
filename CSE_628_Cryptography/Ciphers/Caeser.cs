@@ -7,7 +7,6 @@ namespace CSE_628_Cryptography.Ciphers
 	{
 		private string _analyze = "";
 		private int _key = 0;
-		private Command _parseCaeserCommand;
 		private string _result = "";
 
 		public Caeser()

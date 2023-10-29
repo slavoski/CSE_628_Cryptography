@@ -5,6 +5,7 @@
 		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		xmlns:local="clr-namespace:CSE_628_Cryptography"
+		xmlns:tools="clr-namespace:CSE_628_Cryptography.Tools"
 		mc:Ignorable="d"
         Title="Cryptography" Height="800" Width="1300"
 		TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -87,13 +88,13 @@
 							</Grid.RowDefinitions>
 							<TextBox Text="{Binding CaeserCipher.Key}" materialDesign:HintAssist.Hint="Enter Key" Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Height="42" />
 							<Button  Margin="0,10,0, 10" Grid.Column="3" Content="Calculate Cipher" Command="{Binding CaeserCipher.ParseCaeserCommand}" VerticalAlignment="Bottom" />
-							<Separator Grid.Row="1" Grid.ColumnSpan="55"/>
+							<Separator Grid.Row="1" Grid.ColumnSpan="55" />
 							<TextBox Text="{Binding CaeserCipher.Analyze}" Grid.Row="2" Grid.ColumnSpan="3" ScrollViewer.VerticalScrollBarVisibility="Auto" AcceptsReturn="True" materialDesign:HintAssist.Hint="Enter Text To Decrypt" Style="{DynamicResource MaterialDesignFloatingHintTextBox}" />
-							<TextBox Grid.Row="3" Text="{Binding CaeserCipher.Result}" Grid.ColumnSpan="3" ScrollViewer.VerticalScrollBarVisibility="Auto" AcceptsReturn="True" materialDesign:HintAssist.Hint="Decrypted Results" Style="{DynamicResource MaterialDesignFloatingHintTextBox}"/>
+							<TextBox Grid.Row="3" Text="{Binding CaeserCipher.Result}" Grid.ColumnSpan="3" ScrollViewer.VerticalScrollBarVisibility="Auto" AcceptsReturn="True" materialDesign:HintAssist.Hint="Decrypted Results" Style="{DynamicResource MaterialDesignFloatingHintTextBox}" />
 						</Grid>
 					</GroupBox>
 					<!--#endregion-->
-					<!--#region Caeser Cipher-->
+					<!--#region Affine Cipher-->
 					<GroupBox Margin="5" Grid.Column="1" Grid.RowSpan="55" Header="Affine Cipher" materialDesign:ColorZoneAssist.Mode="SecondaryMid">
 						<Grid>
 							<Grid.ColumnDefinitions>
@@ -114,13 +115,39 @@
 							<TextBox Text="{Binding AffineCipherClass.B}" materialDesign:HintAssist.Hint="Enter B" Grid.Row="1"  Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Height="42" />
 							<TextBox Text="{Binding AffineCipherClass.M}" materialDesign:HintAssist.Hint="Enter M" Grid.Row="2"  Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Height="42" />
 							<Button  Margin="0,10,0, 10" Grid.Row="3" Grid.Column="3" Content="Calculate Cipher" Command="{Binding AffineCipherClass.CalculateAffineCipherCommand}" VerticalAlignment="Bottom" />
-							<Separator Grid.Row="4" Grid.ColumnSpan="55"/>
+							<Separator Grid.Row="4" Grid.ColumnSpan="55" />
 							<TextBox Text="{Binding AffineCipherClass.Decrypt}" Grid.Row="5" Grid.ColumnSpan="3" ScrollViewer.VerticalScrollBarVisibility="Auto" AcceptsReturn="True" materialDesign:HintAssist.Hint="Enter Text To Decrypt" Style="{DynamicResource MaterialDesignFloatingHintTextBox}" />
 							<TextBox Grid.Row="6" Text="{Binding AffineCipherClass.Result}" Grid.ColumnSpan="3" ScrollViewer.VerticalScrollBarVisibility="Auto" AcceptsReturn="True" materialDesign:HintAssist.Hint="Decrypted Results" Style="{DynamicResource MaterialDesignFloatingHintTextBox}" />
 						</Grid>
 					</GroupBox>
 					<!--#endregion-->
 				</Grid>
+			</TabItem>
+			<TabItem Header="Stream Cipher">
+				<!--#region Stream Cipher-->
+				<GroupBox Margin="5" Grid.RowSpan="55" Header="Caeser Cipher" materialDesign:ColorZoneAssist.Mode="SecondaryMid">
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition />
+							<ColumnDefinition />
+							<ColumnDefinition />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition />
+							<RowDefinition />
+							<RowDefinition />
+						</Grid.RowDefinitions>
+						<ComboBox ItemsSource="{Binding StreamCipherClass.Operators}" SelectedItem="{Binding StreamCipherClass.SelectedOperator}" materialDesign:HintAssist.Hint="Select Operator" Style="{StaticResource MaterialDesignFloatingHintComboBox}" />
+						<Button  Margin="0,10,0, 10" Grid.Column="3" Content="Calculate Cipher" Command="{Binding StreamCipherClass.ParseStreamCipherCommand}" VerticalAlignment="Bottom" />
+						<Separator Grid.Row="1" Grid.ColumnSpan="55" />
+						<TextBox Text="{Binding StreamCipherClass.Analyze}" Grid.Row="2" Grid.ColumnSpan="3" ScrollViewer.VerticalScrollBarVisibility="Auto" AcceptsReturn="True" materialDesign:HintAssist.Hint="Enter Text To Decrypt" Style="{DynamicResource MaterialDesignFloatingHintTextBox}" />
+						<TextBox Grid.Row="3" Text="{Binding StreamCipherClass.Key}" Grid.ColumnSpan="3" ScrollViewer.VerticalScrollBarVisibility="Auto" AcceptsReturn="True" materialDesign:HintAssist.Hint="Key" Style="{DynamicResource MaterialDesignFloatingHintTextBox}" />
+						<TextBox Grid.Row="4" Text="{Binding StreamCipherClass.Result}" Grid.ColumnSpan="3" ScrollViewer.VerticalScrollBarVisibility="Auto" AcceptsReturn="True" materialDesign:HintAssist.Hint="Decrypted Results" Style="{DynamicResource MaterialDesignFloatingHintTextBox}" />
+					</Grid>
+				</GroupBox>
+				<!--#endregion-->
 			</TabItem>
 			<TabItem Header="Tools">
 				<Grid>
@@ -254,5 +281,7 @@
 				</Grid>
 			</TabItem>
 		</TabControl>
+
+		<materialDesign:Snackbar HorizontalAlignment="Center" MessageQueue="{Binding Source={x:Static tools:SnackBarManager.SnackBoxMessage}}" IsActive="False" />
 	</Grid>
 </Window>
