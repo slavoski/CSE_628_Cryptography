@@ -36,11 +36,17 @@ namespace CSE_628_Cryptography.Ciphers
 			}
 		}
 
+		public int Modulo
+		{
+			get;
+			set;
+		} = 26;
+
 		public List<string> Operators
 		{
 			get;
 			set;
-		} = new List<string>() { "+", "-", "*", "/" };
+		} = new List<string>() { "+", "-", "*", "/", "AND", "OR", "XOR" };
 
 		public Command ParseStreamCipherCommand
 		{
@@ -85,22 +91,22 @@ namespace CSE_628_Cryptography.Ciphers
 						switch (SelectedOperator)
 						{
 							case "+":
-								result = (analyzeValue + keyValue) % 26;
+								result = (analyzeValue + keyValue);
 								break;
 
 							case "-":
-								result = (analyzeValue - keyValue) % 26;
+								result = (analyzeValue - keyValue);
 								break;
 
 							case "*":
-								result = (analyzeValue * keyValue) % 26;
+								result = (analyzeValue * keyValue);
 								break;
 
 							case "/":
 								{
 									if (keyValue != 0)
 									{
-										result = (analyzeValue / keyValue) % 26;
+										result = (analyzeValue / keyValue);
 									}
 									else
 									{
@@ -109,10 +115,28 @@ namespace CSE_628_Cryptography.Ciphers
 								}
 								break;
 
+							case "AND":
+								result = (analyzeValue & keyValue);
+								break;
+
+							case "OR":
+								result = (analyzeValue | keyValue);
+								break;
+
+							case "XOR":
+								result = (analyzeValue ^ keyValue);
+								break;
+
 							default:
 								SnackBarManager.SnackBoxMessage.Enqueue($"Stream Cipher No operator exists");
 								break;
 						}
+
+						result %= Modulo;
+
+						if (result < 0)
+							result = Modulo + result;
+
 						result += 'a';
 						Result += (char)result;
 					}
