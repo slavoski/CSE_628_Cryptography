@@ -1,5 +1,6 @@
 ﻿using CSE_628_Cryptography.Ciphers;
 using CSE_628_Cryptography.Frequencies;
+using CSE_628_Cryptography.Modern;
 using CSE_628_Cryptography.MultiplicativeInverse;
 using CSE_628_Cryptography.Tools;
 using MaterialDesignThemes.Wpf;
@@ -20,6 +21,12 @@ namespace CSE_628_Cryptography
 			get;
 			set;
 		} = new Caeser();
+
+		public DESFunctionClass DESFunctionClass
+		{
+			get;
+			set;
+		} = new DESFunctionClass();
 
 		public FactorClass Factors
 		{
@@ -50,7 +57,7 @@ namespace CSE_628_Cryptography
 			get;
 			set;
 		} = new RelativePrimeClass();
-		
+
 		public SnackbarMessageQueue SnackBoxMessage
 		{
 			get;
@@ -62,6 +69,5 @@ namespace CSE_628_Cryptography
 			get;
 			set;
 		} = new StreamCipher();
-
 	}
 }
