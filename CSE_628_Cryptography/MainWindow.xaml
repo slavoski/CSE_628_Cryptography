@@ -285,39 +285,149 @@
 				<Grid>
 					<Grid.ColumnDefinitions>
 						<ColumnDefinition />
-						<ColumnDefinition Width="300"/>
+						<ColumnDefinition />
 					</Grid.ColumnDefinitions>
 					<Grid.RowDefinitions>
 						<RowDefinition Height="Auto" />
 						<RowDefinition Height="Auto" />
-						<RowDefinition Height="Auto" />
 						<RowDefinition />
-						<RowDefinition Height="Auto" />
 					</Grid.RowDefinitions>
 
-					<StackPanel Orientation="Horizontal">
-						<TextBlock Text="Key: " />
-						<TextBox Text="{Binding DESFunctionClass.Key}"  Width="400" Margin="41,0,25,0"/>
-						<TextBlock Text="Value To Add:" Margin="0,0,0,0" VerticalAlignment="Center"/>
-						<TextBox Text="{Binding DESFunctionClass.KeyValue	}" Width="64" Margin="0,0,25,0" />
-						<Button Content="Add 64 Bits" Command="{Binding DESFunctionClass.Add64BitsToKeySideCommand}" />
-					</StackPanel>
-					<StackPanel Grid.Row="1" Orientation="Horizontal">
-						<TextBlock Text="Right Side: " />
-						<TextBox Text="{Binding DESFunctionClass.RightSide}"  Width="400" Margin="0,0,25,0"/>
-						<TextBlock Text="Value To Add:" Margin="0,0,0,0" VerticalAlignment="Center"/>
-						<TextBox Text="{Binding DESFunctionClass.RightValue	}" Width="64" Margin="0,0,25,0"/>
-						<Button Content="Add 32 Bits" Command="{Binding DESFunctionClass.Add32BitsToRightSideCommand}" />
-					</StackPanel>
-					<StackPanel Grid.Row="2" Orientation="Horizontal">
-						<TextBlock Text="Left Side: " />
-						<TextBox Text="{Binding DESFunctionClass.LeftSide	}"  Width="400" Margin="8,0,25,0" />
-						<TextBlock Text="Value To Add:" Margin="0,0,0,0" VerticalAlignment="Center"/>
-						<TextBox Text="{Binding DESFunctionClass.LeftSideValue	}" Width="64" Margin="0,0,25,0"/>
-						<Button Content="Add 32 Bits" Command="{Binding DESFunctionClass.Add32BitsToLeftSideCommand}" />
+					<Grid Grid.ColumnSpan="2">
+
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition />
+						</Grid.RowDefinitions>
+
+						<StackPanel Orientation="Horizontal" Grid.ColumnSpan="2">
+							<TextBox Text="{Binding DESFunctionClass.Key}"  Width="550" Margin="15,0,25,0" VerticalAlignment="Center" materialDesign:HintAssist.Hint="Key: " Style="{DynamicResource MaterialDesignFloatingHintTextBox}" />
+							<TextBox Text="{Binding DESFunctionClass.KeyValue	}" Width="64" Margin="0,0,25,0"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Add Bit " Style="{DynamicResource MaterialDesignFloatingHintTextBox}" />
+							<Button Content="Add 64 Bits" Command="{Binding DESFunctionClass.Add64BitsToKeySideCommand}" />
+						</StackPanel>
+
+						<StackPanel Orientation="Horizontal" Grid.Row="1" Grid.ColumnSpan="2">
+							<TextBox Text="{Binding DESFunctionClass.Bit64}"  Width="550" Margin="15,0,25,0" VerticalAlignment="Center" materialDesign:HintAssist.Hint="Data: " Style="{DynamicResource MaterialDesignFloatingHintTextBox}" />
+							<TextBox Text="{Binding DESFunctionClass.Bit64Value	}" Width="64" Margin="0,0,25,0"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Add Bit " Style="{DynamicResource MaterialDesignFloatingHintTextBox}" />
+							<Button Content="Add 64 Bits" Command="{Binding DESFunctionClass.Add64BitsToBits64Command}" />
+						</StackPanel>
+
+						<TextBox Grid.Row="2" HorizontalAlignment="Left" Text="{Binding DESFunctionClass.InitialPermutationResult}"  Width="550" Margin="15,0,25,0"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Initial Permutation: " Style="{DynamicResource MaterialDesignFloatingHintTextBox}" />
+
+						<TextBox Grid.Row="3" HorizontalAlignment="Left" Text="{Binding DESFunctionClass.RightSide}"  Width="400" Margin="15,0,25,0"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Right Side: " Style="{DynamicResource MaterialDesignFloatingHintTextBox}" />
+
+						<TextBox Grid.Row="4" HorizontalAlignment="Left" Text="{Binding DESFunctionClass.LeftSide	}"  Width="400" Margin="15,0,25,0"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Left Side: " Style="{DynamicResource MaterialDesignFloatingHintTextBox}" />
+					</Grid>
+
+					<GroupBox Grid.Row="1" Margin="15,10,0,0" Header="DES Function Steps" materialDesign:ColorZoneAssist.Mode="SecondaryMid" Width="500" HorizontalAlignment="Left">
+						<Grid>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+							</Grid.RowDefinitions>
+
+							<TextBlock Text="Expansion" />
+							<TextBlock Text="{Binding DESFunctionClass.ExpansionResult}" Grid.Row="1"  Margin="10,0,25,0" Style="{DynamicResource MaterialDesignBody1TextBlock}" />
+							<TextBlock Text="Cross" Grid.Row="2" />
+							<TextBlock Text="{Binding DESFunctionClass.CrossResult}" Grid.Row="3" Margin="10,0,25,0" Style="{DynamicResource MaterialDesignBody1TextBlock}" />
+							<TextBlock Text="S-Box Lookup" Grid.Row="4" />
+							<Grid Grid.Row="5" Margin="10,5,0,0">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="Auto" />
+									<ColumnDefinition Width="Auto" />
+									<ColumnDefinition Width="Auto" />
+									<ColumnDefinition Width="Auto" />
+									<ColumnDefinition Width="Auto" />
+									<ColumnDefinition Width="Auto" />
+									<ColumnDefinition Width="Auto" />
+									<ColumnDefinition Width="Auto" />
+								</Grid.ColumnDefinitions>
+								<GroupBox Header="S1" Width="36" Height="72">
+									<TextBlock Text="{Binding DESFunctionClass.S1Result}" HorizontalAlignment="Center" />
+								</GroupBox>
+								<GroupBox Grid.Column="1" Margin="5,0,0,0" Header="S2" Width="36" Height="72">
+									<TextBlock Text="{Binding DESFunctionClass.S2Result}" HorizontalAlignment="Center" />
+								</GroupBox>
+								<GroupBox Grid.Column="2" Margin="5,0,0,0" Header="S3" Width="36" Height="72">
+									<TextBlock Text="{Binding DESFunctionClass.S3Result}" HorizontalAlignment="Center" />
+								</GroupBox>
+								<GroupBox Grid.Column="3" Margin="5,0,0,0" Header="S4" Width="36" Height="72">
+									<TextBlock Text="{Binding DESFunctionClass.S4Result}" HorizontalAlignment="Center" />
+								</GroupBox>
+								<GroupBox Grid.Column="4" Margin="5,0,0,0" Header="S5" Width="36" Height="72">
+									<TextBlock Text="{Binding DESFunctionClass.S5Result}" HorizontalAlignment="Center" />
+								</GroupBox>
+								<GroupBox Grid.Column="5" Margin="5,0,0,0" Header="S6" Width="36" Height="72">
+									<TextBlock Text="{Binding DESFunctionClass.S6Result}" HorizontalAlignment="Center" />
+								</GroupBox>
+								<GroupBox Grid.Column="6" Margin="5,0,0,0" Header="S7" Width="36" Height="72">
+									<TextBlock Text="{Binding DESFunctionClass.S7Result}" HorizontalAlignment="Center" />
+								</GroupBox>
+								<GroupBox Grid.Column="7" Margin="5,0,0,0" Header="S8" Width="36" Height="72">
+									<TextBlock Text="{Binding DESFunctionClass.S8Result}" HorizontalAlignment="Center" />
+								</GroupBox>
+							</Grid>
+
+							<TextBlock Grid.Row="6" Margin="0,5,0,0" Text="S-Box Bits" />
+							<TextBlock Text="{Binding DESFunctionClass.SBoxResult}" Grid.Row="7"  Margin="10,0,25,0" Style="{DynamicResource MaterialDesignBody1TextBlock}" />
+							<TextBlock Grid.Row="8" Margin="0,5,0,0" Text="Permutation" />
+							<TextBlock Text="{Binding DESFunctionClass.PermutationResult}" Grid.Row="9"  Margin="10,0,25,0" Style="{DynamicResource MaterialDesignBody1TextBlock}" />
+							<TextBlock Grid.Row="10" Margin="0,5,0,0" Text="Cross" />
+							<TextBlock Text="{Binding DESFunctionClass.FinalCrossResult}" Grid.Row="11"  Margin="10,0,25,0" Style="{DynamicResource MaterialDesignBody1TextBlock}" />
+						</Grid>
+					</GroupBox>
+
+					<StackPanel Grid.Row="2" Orientation="Horizontal" Grid.ColumnSpan="2">
+						<TextBox Text="{Binding DESFunctionClass.RightSide	}" Width="300" Margin="15,0,25,0"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Left: " Style="{DynamicResource MaterialDesignFloatingHintTextBox}" />
+						<TextBox Text="{Binding DESFunctionClass.FinalCrossResult}"  Width="300" Margin="15,0,25,0" VerticalAlignment="Center" materialDesign:HintAssist.Hint="Right: " Style="{DynamicResource MaterialDesignFloatingHintTextBox}" />
 					</StackPanel>
 
-					<Button Grid.Row="3" Grid.Column="2" Margin="10" Content="Calculate" Command="{Binding DESFunctionClass.CalculateCommand}" />
+					<GroupBox Grid.Row="1" Grid.Column="1" Margin="-50,10,0,0" Header="Key Function Steps" materialDesign:ColorZoneAssist.Mode="SecondaryMid" Width="650" HorizontalAlignment="Left">
+						<Grid>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+							</Grid.RowDefinitions>
+							<TextBlock Text="Initial Key Permutation" />
+							<TextBlock Text="{Binding DESFunctionClass.KeyPermutationResult}" Grid.Row="1"  Margin="10,0,25,0" Style="{DynamicResource MaterialDesignBody1TextBlock}" />
+							<TextBlock Text="Bit Shift Results" Grid.Row="2" />
+							<TextBlock Text="{Binding DESFunctionClass.KeyShiftResult}" Grid.Row="3"  Margin="10,0,25,0" Style="{DynamicResource MaterialDesignBody1TextBlock}" />
+							<TextBlock Text="Round Key Permutation" Grid.Row="4" />
+							<TextBlock Text="{Binding DESFunctionClass.RoundKeyPermutationResult}" Grid.Row="5"  Margin="10,0,25,0" Style="{DynamicResource MaterialDesignBody1TextBlock}" />
+							<TextBlock Text="First Bit Position" Grid.Row="6" />
+							<TextBlock Text="{Binding DESFunctionClass.FirstBitPosition}" Grid.Row="7"  Margin="10,0,25,0" Style="{DynamicResource MaterialDesignBody1TextBlock}" />
+							<TextBlock Text="Changed S-Box" Grid.Row="8" />
+							<TextBlock Text="{Binding DESFunctionClass.SboxChanged}" Grid.Row="9"  Margin="10,0,25,0" Style="{DynamicResource MaterialDesignBody1TextBlock}" />
+
+						</Grid>
+					</GroupBox>
+
+					<Button Grid.Row="2" Grid.Column="2" Margin="10" Width="300" HorizontalAlignment="Right" Content="{Binding DESFunctionClass.Calculate}" Command="{Binding DESFunctionClass.CalculateCommand}" />
 				</Grid>
 			</TabItem>
 		</TabControl>
