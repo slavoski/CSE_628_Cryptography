@@ -69,5 +69,12 @@ namespace CSE_628_Cryptography
 			get;
 			set;
 		} = new StreamCipher();
+
+		public AdvancedEuclideanAlgorithm AdvancedEuclideanAlgorithm
+		{
+			get;
+			set;
+		} = new AdvancedEuclideanAlgorithm();
+
 	}
 }

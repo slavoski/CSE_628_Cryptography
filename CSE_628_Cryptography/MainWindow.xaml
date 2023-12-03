@@ -173,9 +173,8 @@
 							</Grid.ColumnDefinitions>
 							<Grid.RowDefinitions>
 								<RowDefinition Height="Auto" />
-								<RowDefinition Height="Auto" />
-								<RowDefinition Height="Auto" />
 								<RowDefinition Height="*" />
+								<RowDefinition Height="Auto" />
 							</Grid.RowDefinitions>
 							<TextBox Margin="5" Text="{Binding MultiplicativeInverse.A}" materialDesign:HintAssist.Hint="Enter a"  Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Height="48" />
 							<TextBox Grid.Column="1" Text="{Binding MultiplicativeInverse.M}" Margin="5" materialDesign:HintAssist.Hint="Enter m"  Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Height="48" />
@@ -205,8 +204,8 @@
 							<Grid.RowDefinitions>
 								<RowDefinition Height="Auto" />
 								<RowDefinition Height="Auto" />
-								<RowDefinition Height="Auto" />
 								<RowDefinition Height="*" />
+								<RowDefinition Height="Auto" />
 							</Grid.RowDefinitions>
 							<TextBox Margin="5" Text="{Binding RelativePrimeClass.X}" materialDesign:HintAssist.Hint="Enter M"  Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Height="48" />
 							<StackPanel Grid.Row="1" Orientation="Horizontal" Margin="5,0,0,0">
@@ -235,9 +234,8 @@
 							</Grid.ColumnDefinitions>
 							<Grid.RowDefinitions>
 								<RowDefinition Height="Auto" />
-								<RowDefinition Height="Auto" />
-								<RowDefinition Height="Auto" />
 								<RowDefinition Height="*" />
+								<RowDefinition Height="Auto" />
 							</Grid.RowDefinitions>
 							<TextBox Margin="5" Text="{Binding GCD.X}" materialDesign:HintAssist.Hint="Enter x"  Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Height="48" />
 							<TextBox Grid.Column="1" Text="{Binding GCD.Y}" Margin="5" materialDesign:HintAssist.Hint="Enter y"  Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Height="48" />
@@ -261,8 +259,8 @@
 							<Grid.RowDefinitions>
 								<RowDefinition Height="Auto" />
 								<RowDefinition Height="Auto" />
-								<RowDefinition Height="Auto" />
 								<RowDefinition Height="*" />
+								<RowDefinition Height="Auto" />
 							</Grid.RowDefinitions>
 							<TextBox Margin="5" Text="{Binding Factors.X}" materialDesign:HintAssist.Hint="Enter x"  Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Height="48" />
 							<StackPanel Grid.Row="1" Orientation="Horizontal" Margin="5,0,0,0">
@@ -276,6 +274,35 @@
 								</StackPanel>
 							</ScrollViewer>
 							<Button Grid.Row="3" Grid.Column="2" Content="Find Factors" Command="{Binding Factors.FactorClassCommand}" />
+						</Grid>
+					</GroupBox>
+					<!--#endregion-->
+
+					<!--#region Advanced Euclidean Algorithm-->
+					<GroupBox Grid.Column="1" Grid.Row="1" Grid.RowSpan="2"  Margin="5" Header="Advanced Euclidean Algorithm" materialDesign:ColorZoneAssist.Mode="SecondaryMid">
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition />
+								<ColumnDefinition />
+								<ColumnDefinition />
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto" />
+								<RowDefinition />
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+							</Grid.RowDefinitions>
+							<TextBox Margin="5" Text="{Binding AdvancedEuclideanAlgorithm.A}" materialDesign:HintAssist.Hint="Enter Left Side"  Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Height="48" />
+							<TextBox Grid.Column="1" Text="{Binding AdvancedEuclideanAlgorithm.M}" Margin="5" materialDesign:HintAssist.Hint="Enter Right Side"  Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Height="48" />
+							<DataGrid Grid.Row="1" ItemsSource="{Binding AdvancedEuclideanAlgorithm.Results}" Grid.ColumnSpan="3" HeadersVisibility="None" CanUserAddRows="False" CanUserReorderColumns="False" CanUserDeleteRows="False" >
+							</DataGrid>
+
+							<StackPanel Grid.Row="2" Orientation="Horizontal" Grid.ColumnSpan="2" VerticalAlignment="Center">
+								<TextBlock Margin="5" Text="{Binding AdvancedEuclideanAlgorithm.S, StringFormat={} S: {0}}" />
+								<TextBlock Margin="5" Text="{Binding AdvancedEuclideanAlgorithm.T, StringFormat={} T: {0}}" />
+								<TextBlock Margin="5" Text="{Binding AdvancedEuclideanAlgorithm.GCD, StringFormat={} GCD: {0}}" />
+							</StackPanel>
+							<Button Grid.Row="2" Grid.Column="2" Content="Calculate" Command="{Binding AdvancedEuclideanAlgorithm.FindAEACommand}" />
 						</Grid>
 					</GroupBox>
 					<!--#endregion-->
@@ -423,7 +450,6 @@
 							<TextBlock Text="{Binding DESFunctionClass.FirstBitPosition}" Grid.Row="7"  Margin="10,0,25,0" Style="{DynamicResource MaterialDesignBody1TextBlock}" />
 							<TextBlock Text="Changed S-Box" Grid.Row="8" />
 							<TextBlock Text="{Binding DESFunctionClass.SboxChanged}" Grid.Row="9"  Margin="10,0,25,0" Style="{DynamicResource MaterialDesignBody1TextBlock}" />
-
 						</Grid>
 					</GroupBox>
 
