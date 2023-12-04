@@ -12,6 +12,8 @@ namespace CSE_628_Cryptography.Tools
 		private int _s;
 		private int _t;
 
+		#region properties
+
 		public int A
 		{
 			get => _a;
@@ -47,7 +49,7 @@ namespace CSE_628_Cryptography.Tools
 				OnPropertyChanged(nameof(M));
 			}
 		}
-
+		
 		public ObservableRangeCollection<StringTable> Results
 		{
 			get;
@@ -73,6 +75,7 @@ namespace CSE_628_Cryptography.Tools
 				OnPropertyChanged(nameof(T));
 			}
 		}
+		#endregion
 
 		#region constructor
 

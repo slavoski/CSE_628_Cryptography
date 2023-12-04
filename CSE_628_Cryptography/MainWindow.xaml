@@ -150,164 +150,6 @@
 				</GroupBox>
 				<!--#endregion-->
 			</TabItem>
-			<TabItem Header="Tools">
-				<Grid>
-					<Grid.ColumnDefinitions>
-						<ColumnDefinition />
-						<ColumnDefinition />
-					</Grid.ColumnDefinitions>
-
-					<Grid.RowDefinitions>
-						<RowDefinition />
-						<RowDefinition />
-						<RowDefinition />
-					</Grid.RowDefinitions>
-
-					<!--#region  Multiplicative Inverse-->
-					<GroupBox Margin="5" Header="Multiplicative Inverse" materialDesign:ColorZoneAssist.Mode="SecondaryMid">
-						<Grid>
-							<Grid.ColumnDefinitions>
-								<ColumnDefinition />
-								<ColumnDefinition />
-								<ColumnDefinition />
-							</Grid.ColumnDefinitions>
-							<Grid.RowDefinitions>
-								<RowDefinition Height="Auto" />
-								<RowDefinition Height="*" />
-								<RowDefinition Height="Auto" />
-							</Grid.RowDefinitions>
-							<TextBox Margin="5" Text="{Binding MultiplicativeInverse.A}" materialDesign:HintAssist.Hint="Enter a"  Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Height="48" />
-							<TextBox Grid.Column="1" Text="{Binding MultiplicativeInverse.M}" Margin="5" materialDesign:HintAssist.Hint="Enter m"  Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Height="48" />
-							<StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,10,0,10">
-								<TextBlock>
-									<TextBlock.Inlines>
-										<Run Text="a" />
-										<Run FontFamily="Palatino Linotype" Typography.Variants="Superscript" Text="&#8315;1" />
-										<Run Text=" =" />
-									</TextBlock.Inlines>
-								</TextBlock>
-								<TextBlock Margin="10,0,0,0" FontFamily="Palatino Linotype" Grid.Row="2"  Text="{Binding MultiplicativeInverse.Result}" />
-							</StackPanel>
-							<Button Grid.Row="2" Grid.Column="2" Content="Find Multiplicative Inverse" Command="{Binding MultiplicativeInverse.FindMultiplicativeInverseCommand}" />
-						</Grid>
-					</GroupBox>
-					<!--#endregion-->
-
-					<!--#region Relative Primes-->
-					<GroupBox Grid.Row="1" Margin="5" Header="Relative Primes" materialDesign:ColorZoneAssist.Mode="SecondaryMid">
-						<Grid>
-							<Grid.ColumnDefinitions>
-								<ColumnDefinition />
-								<ColumnDefinition />
-								<ColumnDefinition />
-							</Grid.ColumnDefinitions>
-							<Grid.RowDefinitions>
-								<RowDefinition Height="Auto" />
-								<RowDefinition Height="Auto" />
-								<RowDefinition Height="*" />
-								<RowDefinition Height="Auto" />
-							</Grid.RowDefinitions>
-							<TextBox Margin="5" Text="{Binding RelativePrimeClass.X}" materialDesign:HintAssist.Hint="Enter M"  Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Height="48" />
-							<StackPanel Grid.Row="1" Orientation="Horizontal" Margin="5,0,0,0">
-								<TextBlock  Text="Count: " />
-								<TextBlock Margin="2,0,0,0" Text="{Binding RelativePrimeClass.RelativePrimesList.Count}" />
-							</StackPanel>
-							<ScrollViewer Margin="5, 0, 5, 5" Grid.Row="2" Grid.ColumnSpan="10" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
-								<StackPanel Orientation="Horizontal">
-									<TextBlock Text="Relative Prime Range: " />
-									<TextBlock FontFamily="Palatino Linotype" Grid.Row="2"  Text="{Binding RelativePrimeClass.Display}" />
-								</StackPanel>
-							</ScrollViewer>
-
-							<Button Grid.Row="3" Grid.Column="2" Content="Find Relative Primes" Command="{Binding RelativePrimeClass.CalculateRelativePrimesCommmand}" />
-						</Grid>
-					</GroupBox>
-					<!--#endregion-->
-
-					<!--#region GCD-->
-					<GroupBox Grid.Row="2" Margin="5" Header="GCD" materialDesign:ColorZoneAssist.Mode="SecondaryMid">
-						<Grid>
-							<Grid.ColumnDefinitions>
-								<ColumnDefinition />
-								<ColumnDefinition />
-								<ColumnDefinition />
-							</Grid.ColumnDefinitions>
-							<Grid.RowDefinitions>
-								<RowDefinition Height="Auto" />
-								<RowDefinition Height="*" />
-								<RowDefinition Height="Auto" />
-							</Grid.RowDefinitions>
-							<TextBox Margin="5" Text="{Binding GCD.X}" materialDesign:HintAssist.Hint="Enter x"  Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Height="48" />
-							<TextBox Grid.Column="1" Text="{Binding GCD.Y}" Margin="5" materialDesign:HintAssist.Hint="Enter y"  Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Height="48" />
-							<StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,10,0,10">
-								<TextBlock Text="GCD:" />
-								<TextBlock Margin="10,0,0,0" Grid.Row="2"  Text="{Binding GCD.Gcd}" />
-							</StackPanel>
-							<Button Grid.Row="2" Grid.Column="2" Content="Find GCD" Command="{Binding GCD.CalculateGCDCommand}" />
-						</Grid>
-					</GroupBox>
-					<!--#endregion-->
-
-					<!--#region Factors-->
-					<GroupBox Grid.Column="1" Margin="5" Header="Factors" materialDesign:ColorZoneAssist.Mode="SecondaryMid">
-						<Grid>
-							<Grid.ColumnDefinitions>
-								<ColumnDefinition />
-								<ColumnDefinition />
-								<ColumnDefinition />
-							</Grid.ColumnDefinitions>
-							<Grid.RowDefinitions>
-								<RowDefinition Height="Auto" />
-								<RowDefinition Height="Auto" />
-								<RowDefinition Height="*" />
-								<RowDefinition Height="Auto" />
-							</Grid.RowDefinitions>
-							<TextBox Margin="5" Text="{Binding Factors.X}" materialDesign:HintAssist.Hint="Enter x"  Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Height="48" />
-							<StackPanel Grid.Row="1" Orientation="Horizontal" Margin="5,0,0,0">
-								<TextBlock  Text="Count: " />
-								<TextBlock Margin="2,0,0,0" Text="{Binding Factors.Factors.Count}" />
-							</StackPanel>
-							<ScrollViewer Margin="5, 0, 5, 5" Grid.Row="2" Grid.ColumnSpan="10" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
-								<StackPanel Orientation="Horizontal">
-									<TextBlock Text="Factors: " />
-									<TextBlock FontFamily="Palatino Linotype" Grid.Row="2"  Text="{Binding Factors.Display}" />
-								</StackPanel>
-							</ScrollViewer>
-							<Button Grid.Row="3" Grid.Column="2" Content="Find Factors" Command="{Binding Factors.FactorClassCommand}" />
-						</Grid>
-					</GroupBox>
-					<!--#endregion-->
-
-					<!--#region Advanced Euclidean Algorithm-->
-					<GroupBox Grid.Column="1" Grid.Row="1" Grid.RowSpan="2"  Margin="5" Header="Advanced Euclidean Algorithm" materialDesign:ColorZoneAssist.Mode="SecondaryMid">
-						<Grid>
-							<Grid.ColumnDefinitions>
-								<ColumnDefinition />
-								<ColumnDefinition />
-								<ColumnDefinition />
-							</Grid.ColumnDefinitions>
-							<Grid.RowDefinitions>
-								<RowDefinition Height="Auto" />
-								<RowDefinition />
-								<RowDefinition Height="Auto" />
-								<RowDefinition Height="Auto" />
-							</Grid.RowDefinitions>
-							<TextBox Margin="5" Text="{Binding AdvancedEuclideanAlgorithm.A}" materialDesign:HintAssist.Hint="Enter Left Side"  Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Height="48" />
-							<TextBox Grid.Column="1" Text="{Binding AdvancedEuclideanAlgorithm.M}" Margin="5" materialDesign:HintAssist.Hint="Enter Right Side"  Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Height="48" />
-							<DataGrid Grid.Row="1" ItemsSource="{Binding AdvancedEuclideanAlgorithm.Results}" Grid.ColumnSpan="3" HeadersVisibility="None" CanUserAddRows="False" CanUserReorderColumns="False" CanUserDeleteRows="False" >
-							</DataGrid>
-
-							<StackPanel Grid.Row="2" Orientation="Horizontal" Grid.ColumnSpan="2" VerticalAlignment="Center">
-								<TextBlock Margin="5" Text="{Binding AdvancedEuclideanAlgorithm.S, StringFormat={} S: {0}}" />
-								<TextBlock Margin="5" Text="{Binding AdvancedEuclideanAlgorithm.T, StringFormat={} T: {0}}" />
-								<TextBlock Margin="5" Text="{Binding AdvancedEuclideanAlgorithm.GCD, StringFormat={} GCD: {0}}" />
-							</StackPanel>
-							<Button Grid.Row="2" Grid.Column="2" Content="Calculate" Command="{Binding AdvancedEuclideanAlgorithm.FindAEACommand}" />
-						</Grid>
-					</GroupBox>
-					<!--#endregion-->
-				</Grid>
-			</TabItem>
 			<TabItem Header="DES">
 				<Grid>
 					<Grid.ColumnDefinitions>
@@ -455,6 +297,183 @@
 
 					<Button Grid.Row="2" Grid.Column="2" Margin="10" Width="300" HorizontalAlignment="Right" Content="{Binding DESFunctionClass.Calculate}" Command="{Binding DESFunctionClass.CalculateCommand}" />
 				</Grid>
+			</TabItem>
+			<TabItem Header="Tools">
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition />
+						<ColumnDefinition />
+					</Grid.ColumnDefinitions>
+
+					<Grid.RowDefinitions>
+						<RowDefinition />
+						<RowDefinition />
+						<RowDefinition />
+					</Grid.RowDefinitions>
+
+					<!--#region  Multiplicative Inverse-->
+					<GroupBox Margin="5" Header="Multiplicative Inverse" materialDesign:ColorZoneAssist.Mode="SecondaryMid">
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition />
+								<ColumnDefinition />
+								<ColumnDefinition />
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="*" />
+								<RowDefinition Height="Auto" />
+							</Grid.RowDefinitions>
+							<TextBox Margin="5" Text="{Binding MultiplicativeInverse.A}" materialDesign:HintAssist.Hint="Enter a"  Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Height="48" />
+							<TextBox Grid.Column="1" Text="{Binding MultiplicativeInverse.M}" Margin="5" materialDesign:HintAssist.Hint="Enter m"  Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Height="48" />
+							<StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,10,0,10">
+								<TextBlock>
+									<TextBlock.Inlines>
+										<Run Text="a" />
+										<Run FontFamily="Palatino Linotype" Typography.Variants="Superscript" Text="&#8315;1" />
+										<Run Text=" =" />
+									</TextBlock.Inlines>
+								</TextBlock>
+								<TextBlock Margin="10,0,0,0" FontFamily="Palatino Linotype" Grid.Row="2"  Text="{Binding MultiplicativeInverse.Result}" />
+							</StackPanel>
+							<Button Grid.Row="2" Grid.Column="2" Content="Find Multiplicative Inverse" Command="{Binding MultiplicativeInverse.FindMultiplicativeInverseCommand}" />
+						</Grid>
+					</GroupBox>
+					<!--#endregion-->
+
+					<!--#region Relative Primes-->
+					<GroupBox Grid.Row="1" Margin="5" Header="Relative Primes" materialDesign:ColorZoneAssist.Mode="SecondaryMid">
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition />
+								<ColumnDefinition />
+								<ColumnDefinition />
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="*" />
+								<RowDefinition Height="Auto" />
+							</Grid.RowDefinitions>
+							<TextBox Margin="5" Text="{Binding RelativePrimeClass.X}" materialDesign:HintAssist.Hint="Enter M"  Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Height="48" />
+							<StackPanel Grid.Row="1" Orientation="Horizontal" Margin="5,0,0,0">
+								<TextBlock  Text="Count: " />
+								<TextBlock Margin="2,0,0,0" Text="{Binding RelativePrimeClass.RelativePrimesList.Count}" />
+							</StackPanel>
+							<ScrollViewer Margin="5, 0, 5, 5" Grid.Row="2" Grid.ColumnSpan="10" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+								<StackPanel Orientation="Horizontal">
+									<TextBlock Text="Relative Prime Range: " />
+									<TextBlock FontFamily="Palatino Linotype" Grid.Row="2"  Text="{Binding RelativePrimeClass.Display}" />
+								</StackPanel>
+							</ScrollViewer>
+
+							<Button Grid.Row="3" Grid.Column="2" Content="Find Relative Primes" Command="{Binding RelativePrimeClass.CalculateRelativePrimesCommmand}" />
+						</Grid>
+					</GroupBox>
+					<!--#endregion-->
+
+					<!--#region GCD-->
+					<GroupBox Grid.Row="2" Margin="5" Header="GCD" materialDesign:ColorZoneAssist.Mode="SecondaryMid">
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition />
+								<ColumnDefinition />
+								<ColumnDefinition />
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="*" />
+								<RowDefinition Height="Auto" />
+							</Grid.RowDefinitions>
+							<TextBox Margin="5" Text="{Binding GCD.X}" materialDesign:HintAssist.Hint="Enter x"  Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Height="48" />
+							<TextBox Grid.Column="1" Text="{Binding GCD.Y}" Margin="5" materialDesign:HintAssist.Hint="Enter y"  Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Height="48" />
+							<StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,10,0,10">
+								<TextBlock Text="GCD:" />
+								<TextBlock Margin="10,0,0,0" Grid.Row="2"  Text="{Binding GCD.Gcd}" />
+							</StackPanel>
+							<Button Grid.Row="2" Grid.Column="2" Content="Find GCD" Command="{Binding GCD.CalculateGCDCommand}" />
+						</Grid>
+					</GroupBox>
+					<!--#endregion-->
+
+					<!--#region Factors-->
+					<GroupBox Grid.Column="1" Margin="5" Header="Factors" materialDesign:ColorZoneAssist.Mode="SecondaryMid">
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition />
+								<ColumnDefinition />
+								<ColumnDefinition />
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="*" />
+								<RowDefinition Height="Auto" />
+							</Grid.RowDefinitions>
+							<TextBox Margin="5" Text="{Binding Factors.X}" materialDesign:HintAssist.Hint="Enter x"  Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Height="48" />
+							<StackPanel Grid.Row="1" Orientation="Horizontal" Margin="5,0,0,0">
+								<TextBlock  Text="Count: " />
+								<TextBlock Margin="2,0,0,0" Text="{Binding Factors.Factors.Count}" />
+							</StackPanel>
+							<ScrollViewer Margin="5, 0, 5, 5" Grid.Row="2" Grid.ColumnSpan="10" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+								<StackPanel Orientation="Horizontal">
+									<TextBlock Text="Factors: " />
+									<TextBlock FontFamily="Palatino Linotype" Grid.Row="2"  Text="{Binding Factors.Display}" />
+								</StackPanel>
+							</ScrollViewer>
+							<Button Grid.Row="3" Grid.Column="2" Content="Find Factors" Command="{Binding Factors.FactorClassCommand}" />
+						</Grid>
+					</GroupBox>
+					<!--#endregion-->
+
+					<!--#region Advanced Euclidean Algorithm-->
+					<GroupBox Grid.Column="1" Grid.Row="1" Grid.RowSpan="2"  Margin="5" Header="Advanced Euclidean Algorithm" materialDesign:ColorZoneAssist.Mode="SecondaryMid">
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition />
+								<ColumnDefinition />
+								<ColumnDefinition />
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto" />
+								<RowDefinition />
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+							</Grid.RowDefinitions>
+							<TextBox Margin="5" Text="{Binding AdvancedEuclideanAlgorithm.A}" materialDesign:HintAssist.Hint="Enter Left Side"  Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Height="48" />
+							<TextBox Grid.Column="1" Text="{Binding AdvancedEuclideanAlgorithm.M}" Margin="5" materialDesign:HintAssist.Hint="Enter Right Side"  Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Height="48" />
+							<DataGrid Grid.Row="1" ItemsSource="{Binding AdvancedEuclideanAlgorithm.Results}" Grid.ColumnSpan="3" HeadersVisibility="None" CanUserAddRows="False" CanUserReorderColumns="False" CanUserDeleteRows="False">
+							</DataGrid>
+
+							<StackPanel Grid.Row="2" Orientation="Horizontal" Grid.ColumnSpan="2" VerticalAlignment="Center">
+								<TextBlock Margin="5" Text="{Binding AdvancedEuclideanAlgorithm.S, StringFormat={} S: {0}}" />
+								<TextBlock Margin="5" Text="{Binding AdvancedEuclideanAlgorithm.T, StringFormat={} T: {0}}" />
+								<TextBlock Margin="5" Text="{Binding AdvancedEuclideanAlgorithm.GCD, StringFormat={} GCD: {0}}" />
+							</StackPanel>
+							<Button Grid.Row="2" Grid.Column="2" Content="Calculate" Command="{Binding AdvancedEuclideanAlgorithm.FindAEACommand}" />
+						</Grid>
+					</GroupBox>
+					<!--#endregion-->
+				</Grid>
+			</TabItem>
+			<TabItem Header="Tools 2">
+				<GroupBox Grid.Row="1" Margin="15,10,0,0" Header="φ(m)" materialDesign:ColorZoneAssist.Mode="SecondaryMid" Width="500" HorizontalAlignment="Left">
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+							<RowDefinition />
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition />
+							<ColumnDefinition Width="Auto" />
+						</Grid.ColumnDefinitions>
+						<TextBox Width="75" HorizontalAlignment="Left" Text="{Binding FiAlgorithm.M}" Margin="5" materialDesign:HintAssist.Hint="Enter M"  Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Height="48" />
+						<ListBox Grid.ColumnSpan="2" Grid.Row="1" ItemsSource="{Binding FiAlgorithm.Results}" />
+						<TextBlock Grid.Row="2" Margin="5" Text="{Binding FiAlgorithm.FiValue}" />
+						<Button Margin="10" Grid.Row="2" Grid.Column="2" Content="Calculate φ" Command="{Binding FiAlgorithm.FindFiCommand}" />
+					</Grid>
+				</GroupBox>
 			</TabItem>
 		</TabControl>
 

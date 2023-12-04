@@ -22,7 +22,7 @@ namespace CSE_628_Cryptography.Tools
 
 		public static int CalculateGCD(int x, int y)
 		{
-			var gcd = 1;
+			var gcd = 0;
 			var xFactors = CalculateFactors(x);
 			var yFactors = CalculateFactors(y);
 			var results = xFactors?.Intersect(yFactors);

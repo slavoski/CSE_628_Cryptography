@@ -76,5 +76,11 @@ namespace CSE_628_Cryptography
 			set;
 		} = new AdvancedEuclideanAlgorithm();
 
+		public FiAlgorithm FiAlgorithm
+		{
+			get;
+			set;
+		} = new FiAlgorithm();
+
 	}
 }
