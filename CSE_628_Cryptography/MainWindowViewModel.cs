@@ -82,5 +82,11 @@ namespace CSE_628_Cryptography
 			set;
 		} = new FiAlgorithm();
 
+		public SquareAndMultiply SquareAndMultiply
+		{
+			get; 
+			set;
+		} = new SquareAndMultiply();
+
 	}
 }
