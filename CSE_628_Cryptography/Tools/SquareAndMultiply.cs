@@ -91,13 +91,17 @@ namespace CSE_628_Cryptography.Tools
 			binaryValue = binaryValue[1..];
 			double currentValue = X;
 
+			Messages.Add("Bit Value: 1");
+			Messages.Add($"\tInitial Value: {currentValue}" + $" \tBit Result: {X}^{ConvertToBit(bitValue)} ");
+
+
 			foreach (var character in binaryValue)
 			{
 				Messages.Add("Bit Value: " + character + " ");
 
 				currentValue = Math.Pow(currentValue, 2) % M;
 				bitValue *= 2;
-				Messages.Add("\tPow: " + currentValue.ToString() + $" \t\tBit Result: {X}^{ConvertToBit(bitValue)} ");
+				Messages.Add("\tSquare: " + currentValue.ToString() + $" \tBit Result: {X}^{ConvertToBit(bitValue)} ");
 
 				if (character.Equals('1'))
 				{
