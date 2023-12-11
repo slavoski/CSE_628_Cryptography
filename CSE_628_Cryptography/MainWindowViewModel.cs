@@ -10,6 +10,12 @@ namespace CSE_628_Cryptography
 {
 	public class MainWindowViewModel : BaseViewModel
 	{
+		public AdvancedEuclideanAlgorithm AdvancedEuclideanAlgorithm
+		{
+			get;
+			set;
+		} = new AdvancedEuclideanAlgorithm();
+
 		public AffineCipherClass AffineCipherClass
 		{
 			get;
@@ -22,17 +28,35 @@ namespace CSE_628_Cryptography
 			set;
 		} = new Caeser();
 
+		public CalculateFactors CalculateFactors
+		{
+			get;
+			set;
+		} = new CalculateFactors();
+
 		public DESFunctionClass DESFunctionClass
 		{
 			get;
 			set;
 		} = new DESFunctionClass();
 
+		public DiffieHellmanCalculator DiffieHellmanCalculator
+		{
+			get;
+			set;
+		} = new DiffieHellmanCalculator();
+
 		public FactorClass Factors
 		{
 			get;
 			set;
 		} = new FactorClass();
+
+		public FiAlgorithm FiAlgorithm
+		{
+			get;
+			set;
+		} = new FiAlgorithm();
 
 		public GCDClass GCD
 		{
@@ -64,29 +88,16 @@ namespace CSE_628_Cryptography
 			set;
 		} = new SnackbarMessageQueue();
 
+		public SquareAndMultiply SquareAndMultiply
+		{
+			get;
+			set;
+		} = new SquareAndMultiply();
+
 		public StreamCipher StreamCipherClass
 		{
 			get;
 			set;
 		} = new StreamCipher();
-
-		public AdvancedEuclideanAlgorithm AdvancedEuclideanAlgorithm
-		{
-			get;
-			set;
-		} = new AdvancedEuclideanAlgorithm();
-
-		public FiAlgorithm FiAlgorithm
-		{
-			get;
-			set;
-		} = new FiAlgorithm();
-
-		public SquareAndMultiply SquareAndMultiply
-		{
-			get; 
-			set;
-		} = new SquareAndMultiply();
-
 	}
 }

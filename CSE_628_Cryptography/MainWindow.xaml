@@ -502,6 +502,78 @@
 					</GroupBox>
 				</Grid>
 			</TabItem>
+			<TabItem Header="Tools 3">
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition />
+						<ColumnDefinition />
+					</Grid.ColumnDefinitions>
+
+					<Grid.RowDefinitions>
+						<RowDefinition />
+						<RowDefinition />
+						<RowDefinition />
+					</Grid.RowDefinitions>
+
+					<!--#region  Find Specific Factor-->
+					<GroupBox Margin="5" Header="Calculate Specific Factors" materialDesign:ColorZoneAssist.Mode="SecondaryMid">
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition />
+								<ColumnDefinition />
+								<ColumnDefinition />
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="*" />
+								<RowDefinition Height="Auto" />
+							</Grid.RowDefinitions>
+							<StackPanel Orientation="Horizontal">
+								<TextBlock Text="x&#178; +" VerticalAlignment="Center" />
+								<TextBox Grid.Column="1" Text="{Binding CalculateFactors.B}" Margin="5" materialDesign:HintAssist.Hint="B"  Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Height="48" Width="48" />
+								<TextBlock Text="x +" VerticalAlignment="Center" />
+								<TextBox Grid.Column="1" Text="{Binding CalculateFactors.C}" Margin="5" materialDesign:HintAssist.Hint="C"  Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Height="48" Width="48" />
+							</StackPanel>
+							<TextBlock Grid.Row="1" Text="{Binding CalculateFactors.Result}" VerticalAlignment="Center" />
+							<Button Grid.Row="2" Grid.Column="2" Content="Find Specific Factor" Command="{Binding CalculateFactors.FindFactorsCommand}" />
+						</Grid>
+					</GroupBox>
+					<!--#endregion-->
+
+					<!--#region  Diffie-Hellman Key Exchange-->
+					<GroupBox Grid.Row="1" Grid.RowSpan="2" Margin="5" Header="Diffie-Hellman Key Exchange" materialDesign:ColorZoneAssist.Mode="SecondaryMid">
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition />
+								<ColumnDefinition />
+								<ColumnDefinition />
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="*" />
+								<RowDefinition Height="Auto" />
+							</Grid.RowDefinitions>
+							<StackPanel Grid.ColumnSpan="4" Orientation="Horizontal">
+								<TextBox Width="75" HorizontalAlignment="Left" Text="{Binding DiffieHellmanCalculator.A}" Margin="5" materialDesign:HintAssist.Hint="Enter a"  Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Height="48" />
+								<TextBox Width="75" HorizontalAlignment="Left" Text="{Binding DiffieHellmanCalculator.B}" Margin="5" materialDesign:HintAssist.Hint="Enter b"  Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Height="48" />
+								<TextBox Width="75" HorizontalAlignment="Left" Text="{Binding DiffieHellmanCalculator.P}" Margin="5" materialDesign:HintAssist.Hint="Enter p"  Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Height="48" />
+								<TextBox Width="75" HorizontalAlignment="Left" Text="{Binding DiffieHellmanCalculator.Alpha}" Margin="5" materialDesign:HintAssist.Hint="Enter &#945;"  Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Height="48" />
+							</StackPanel>
+							<ListBox Grid.ColumnSpan="3" Grid.Row="1" ItemsSource="{Binding DiffieHellmanCalculator.Results}" />
+
+							<StackPanel Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal">
+								<TextBlock Text="{Binding DiffieHellmanCalculator.PKA, StringFormat=pkA: {0000}}" VerticalAlignment="Center" />
+								<TextBlock Text="{Binding DiffieHellmanCalculator.PKB, StringFormat=pkB: {0000}}" VerticalAlignment="Center" Margin="10,0" />
+								<TextBlock Text="{Binding DiffieHellmanCalculator.CKA, StringFormat=ckA: {0000}}" VerticalAlignment="Center" Margin="10,0"/>
+								<TextBlock Text="{Binding DiffieHellmanCalculator.CKB, StringFormat=ckB: {0000}}" VerticalAlignment="Center" />
+							</StackPanel>
+
+							<Button Grid.Row="2" Grid.Column="2" Content="Calculate DFKE" Command="{Binding DiffieHellmanCalculator.CalculateDFKECommand}" />
+						</Grid>
+					</GroupBox>
+					<!--#endregion-->
+				</Grid>
+			</TabItem>
 		</TabControl>
 
 		<materialDesign:Snackbar HorizontalAlignment="Center" MessageQueue="{Binding Source={x:Static tools:SnackBarManager.SnackBoxMessage}}" IsActive="False" />

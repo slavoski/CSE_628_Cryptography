@@ -82,7 +82,7 @@ namespace CSE_628_Cryptography.Tools
 
 		#region methods
 
-		private void CalculateSquareandMultiply()
+		public void CalculateSquareandMultiply()
 		{
 			Messages.Clear();
 
@@ -93,7 +93,6 @@ namespace CSE_628_Cryptography.Tools
 
 			Messages.Add("Bit Value: 1");
 			Messages.Add($"\tInitial Value: {currentValue}" + $" \tBit Result: {X}^{ConvertToBit(bitValue)} ");
-
 
 			foreach (var character in binaryValue)
 			{
